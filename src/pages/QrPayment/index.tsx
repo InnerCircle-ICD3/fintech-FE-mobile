@@ -1,4 +1,4 @@
-const QrPaymentPage = () => {
+const QrPayment = () => {
   return (
     <div>
       <h1>QR Payment Page</h1>
@@ -6,4 +6,4 @@ const QrPaymentPage = () => {
   );
 };
 
-export default QrPaymentPage;
+export default QrPayment;

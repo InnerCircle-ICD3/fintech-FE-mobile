@@ -1,4 +1,4 @@
-const UsageHistoryPage = () => {
+const UsageHistory = () => {
   return (
     <div>
       <h1>Usage History Page</h1>
@@ -6,4 +6,4 @@ const UsageHistoryPage = () => {
   );
 };
 
-export default UsageHistoryPage;
+export default UsageHistory;
