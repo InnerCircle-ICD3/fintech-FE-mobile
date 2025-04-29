@@ -10,16 +10,6 @@ const CustomRouterProvider = () => {
     {
       path: '',
       element: <Main />,
-      children: [
-        {
-          path: 'qr',
-          element: <QrPayment />,
-        },
-        {
-          path: 'history',
-          element: <UsageHistory />,
-        },
-      ],
     },
     {
       path: 'login',
@@ -28,6 +18,14 @@ const CustomRouterProvider = () => {
     {
       path: 'register',
       element: <Register />,
+    },
+    {
+      path: 'qr',
+      element: <QrPayment />,
+    },
+    {
+      path: 'history',
+      element: <UsageHistory />,
     },
   ]);
 
