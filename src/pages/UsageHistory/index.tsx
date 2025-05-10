@@ -1,5 +1,8 @@
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchPayments } from '@/api/payments';
+import { useEffect, useState } from 'react';
+import { defaultFilter, PaymentFilter } from './Filter';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export interface PaymentItemType {
   id: string;
@@ -17,13 +20,29 @@ const PaymentItem = ({ date, store, amount }: { date: string; store: string; amo
 );
 
 const UsageHistoryComponent = () => {
+  const [searchParams] = useSearchParams();
+  const [filter, setFilter] = useState<PaymentFilter>(defaultFilter);
+  const navigate = useNavigate();
+
+  const startDate = searchParams.get('startDate') || undefined;
+  const endDate = searchParams.get('endDate') || undefined;
+  const sortBy = (searchParams.get('sortBy') as 'date') || undefined;
+
+  useEffect(() => {
+    setFilter({
+      startDate: startDate,
+      endDate: endDate,
+      sortBy: sortBy,
+    });
+  }, [searchParams]);
+
   const {
     data: payments,
     isLoading,
     error,
   } = useQuery<PaymentItemType[]>({
-    queryKey: ['payments'],
-    queryFn: fetchPayments,
+    queryKey: ['payments', filter],
+    queryFn: () => fetchPayments(filter),
   });
 
   if (isLoading) return <div>로딩 중...</div>;
@@ -34,7 +53,7 @@ const UsageHistoryComponent = () => {
       <h1>사용내역</h1>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <span>총 {payments?.length ?? 0}건</span>
-        <button>필터</button>
+        <button onClick={() => navigate('/history/filter')}>필터</button>
       </div>
 
       <div>{payments?.map((item) => <PaymentItem key={item.id} {...item} />)}</div>
