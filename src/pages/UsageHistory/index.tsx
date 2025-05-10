@@ -19,7 +19,7 @@ const PaymentItem = ({ date, store, amount }: { date: string; store: string; amo
   </div>
 );
 
-const UsageHistoryComponent = () => {
+const UsageHistory = () => {
   const [searchParams] = useSearchParams();
   const [filter, setFilter] = useState<PaymentFilter>(defaultFilter);
   const navigate = useNavigate();
@@ -58,16 +58,6 @@ const UsageHistoryComponent = () => {
 
       <div>{payments?.map((item) => <PaymentItem key={item.id} {...item} />)}</div>
     </div>
-  );
-};
-
-const UsageHistory = () => {
-  const queryClient = new QueryClient();
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <UsageHistoryComponent />
-    </QueryClientProvider>
   );
 };
 
