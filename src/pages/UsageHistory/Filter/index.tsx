@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export interface PaymentFilter {
   startDate?: string; // YYYY-MM-DD
@@ -11,20 +11,23 @@ export const defaultFilter: PaymentFilter = {
   sortBy: 'date',
 };
 
-interface Props {
-  initialFilter: PaymentFilter;
-  onApply: (filter: PaymentFilter) => void;
-  onClose: () => void;
-}
-
 const Filter = () => {
+  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const location = useLocation();
+
   const [filter, setFilter] = useState({
     startDate: '',
     endDate: '',
     sortBy: 'date',
   });
+
+  useEffect(() => {
+    setFilter({
+      startDate: searchParams.get('startDate') || '',
+      endDate: searchParams.get('endDate') || '',
+      sortBy: (searchParams.get('sortBy') as 'date' | 'amount') || 'date',
+    });
+  }, [searchParams]);
 
   const handleApply = () => {
     const params = new URLSearchParams();

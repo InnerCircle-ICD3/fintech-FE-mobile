@@ -53,7 +53,7 @@ const UsageHistoryComponent = () => {
       <h1>사용내역</h1>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <span>총 {payments?.length ?? 0}건</span>
-        <button onClick={() => navigate('/history/filter')}>필터</button>
+        <button onClick={() => navigate('/history/filter?' + searchParams.toString())}>필터</button>
       </div>
 
       <div>{payments?.map((item) => <PaymentItem key={item.id} {...item} />)}</div>
