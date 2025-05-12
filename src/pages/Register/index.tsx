@@ -22,7 +22,8 @@ const Register = () => {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const numeric = e.target.value.replace(/\D/g, '');
+    setForm({ ...form, [e.target.name]: numeric });
   };
 
   const mutation = useMutation({
