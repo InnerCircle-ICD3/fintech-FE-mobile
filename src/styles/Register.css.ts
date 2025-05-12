@@ -57,3 +57,25 @@ export const cardNumberInput = style({
   borderRadius: '6px',
   backgroundColor: '#fff',
 });
+
+export const expiryBlockContainer = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+});
+
+export const expiryBlock = style({
+  width: '48px',
+  height: '44px',
+  padding: '8px',
+  fontSize: '18px',
+  border: '1px solid #ccc',
+  borderRadius: '6px',
+  textAlign: 'center',
+  backgroundColor: '#fff',
+});
+
+export const slash = style({
+  fontSize: '20px',
+  color: '#666',
+});

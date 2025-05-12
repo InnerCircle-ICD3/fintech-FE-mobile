@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { CardNumberInput } from './CardNumberInput';
+import { ExpiryInput } from './ExpiryInput';
 import * as styles from '@/styles/Register.css';
 
 type CardForm = {
@@ -53,13 +54,10 @@ const Register = () => {
 
       <label className={styles.label}>
         유효기간 (MM/YY)
-        <input
-          type="text"
-          name="expiry"
-          inputMode="numeric"
-          value={form.expiry}
-          onChange={handleChange}
-          className={styles.input}
+        <ExpiryInput
+          onChange={(val) => {
+            setForm({ ...form, expiry: val });
+          }}
         />
       </label>
 
