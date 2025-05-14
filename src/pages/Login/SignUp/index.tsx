@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as styles from '@/styles/Signup.css';
+import { auth } from '@/api/auth';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -9,11 +10,16 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignUp = (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    // 회원가입 처리 로직 (ex. fetch or axios)
-    console.log('회원가입');
-    navigate('/login'); // 가입 완료 후 로그인 페이지로 이동
+    const success = await auth.register({ name, phone, email, password });
+
+    if (success) {
+      alert('가입 성공!');
+      navigate('/login');
+    } else {
+      alert('가입 실패!');
+    }
   };
 
   const formatPhoneNumber = (value: string) => {
