@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from '@/pages/Login';
+import SignUp from '@/pages/Login/SignUp';
 import Register from '@/pages/Register';
 import Main from '@/pages/Main';
 import QrPayment from '@/pages/QrPayment';
@@ -15,6 +16,10 @@ const CustomRouterProvider = () => {
     {
       path: 'login',
       element: <Login />,
+    },
+    {
+      path: 'signup',
+      element: <SignUp />,
     },
     {
       path: 'register',
