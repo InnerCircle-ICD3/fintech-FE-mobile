@@ -5,13 +5,13 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const handleClickPay = () => {
-    navigate('/enter-password');
+    navigate('/payment/password');
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>상품 결제</h1>
-      <div className={styles.infoBox}>
+    <div className={styles.payContainer}>
+      <h1 className={styles.payTitle}>상품 결제</h1>
+      <div className={styles.payInfoBox}>
         <p>상품명: 무선 이어폰</p>
         <p>금액: 59,000원</p>
       </div>
