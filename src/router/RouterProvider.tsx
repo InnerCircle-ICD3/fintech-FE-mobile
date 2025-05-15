@@ -5,6 +5,7 @@ import Main from '@/pages/Main';
 import QrScan from '@/pages/QrScan';
 import UsageHistory from '@/pages/UsageHistory';
 import Filter from '@/pages/UsageHistory/Filter';
+import Payment from '@/pages/Payment';
 
 const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
@@ -31,6 +32,10 @@ const CustomRouterProvider = () => {
     {
       path: 'history/filter',
       element: <Filter />,
+    },
+    {
+      path: 'payment',
+      element: <Payment />,
     },
   ]);
 
