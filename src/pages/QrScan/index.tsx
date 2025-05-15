@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
 
-const QrPayment = () => {
+const QrScan = () => {
   const [qrData, setQrData] = useState<string | null>(null);
   const hasScannedRef = useRef(false); // 중복 스캔 방지
 
@@ -51,4 +51,4 @@ const QrPayment = () => {
   );
 };
 
-export default QrPayment;
+export default QrScan;

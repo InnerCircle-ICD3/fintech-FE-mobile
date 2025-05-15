@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from '@/pages/Login';
 import Register from '@/pages/Register';
 import Main from '@/pages/Main';
-import QrPayment from '@/pages/QrPayment';
+import QrScan from '@/pages/QrScan';
 import UsageHistory from '@/pages/UsageHistory';
 import Filter from '@/pages/UsageHistory/Filter';
 
@@ -22,7 +22,7 @@ const CustomRouterProvider = () => {
     },
     {
       path: 'qr',
-      element: <QrPayment />,
+      element: <QrScan />,
     },
     {
       path: 'history',
