@@ -15,10 +15,15 @@ export const title = style({
   marginBottom: '1rem',
 });
 
+export const form = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+});
+
 export const input = style({
   width: '100%',
   padding: '0.75rem',
-  marginBottom: '1rem',
   fontSize: '1rem',
   borderRadius: '8px',
   border: '1px solid #ccc',

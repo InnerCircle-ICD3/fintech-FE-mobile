@@ -35,7 +35,7 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>회원가입</h1>
-      <form onSubmit={handleSignUp}>
+      <form className={styles.form} onSubmit={handleSignUp}>
         <input
           className={styles.input}
           type="text"
