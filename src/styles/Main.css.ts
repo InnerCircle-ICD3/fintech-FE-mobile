@@ -82,6 +82,93 @@ export const cardActionButton = style({
   color: '#111827',
 });
 
+export const historyWrapper = style({
+  padding: '20px',
+});
+
+export const historyHeader = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: '12px',
+});
+
+export const historyTitle = style({
+  fontSize: '16px',
+  fontWeight: 'bold',
+});
+
+export const viewAllHistory = style({
+  fontSize: '14px',
+  color: '#3B82F6',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+});
+
+export const historyList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '12px',
+});
+
+export const historyItem = style({
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor: '#F9FAFB',
+  padding: '12px',
+  borderRadius: '8px',
+});
+
+export const historyIcon = style({
+  fontSize: '24px',
+  marginRight: '12px',
+});
+
+export const historyDetails = style({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+});
+
+export const historyCardRow = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  fontSize: '14px',
+});
+
+export const historyStore = style({
+  fontWeight: 'bold',
+});
+
+export const historyInfoRow = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  fontSize: '13px',
+  color: '#6B7280',
+});
+
+export const historyAmount = style({
+  fontWeight: 'bold',
+});
+
+export const historyDate = style({
+  fontSize: '13px',
+});
+
+export const historyLoading = style({
+  padding: '12px',
+  textAlign: 'center',
+  color: '#6B7280',
+});
+
+export const historyError = style({
+  padding: '12px',
+  textAlign: 'center',
+  color: '#EF4444',
+});
+
 export const nav = style({
   position: 'fixed',
   bottom: 0,
