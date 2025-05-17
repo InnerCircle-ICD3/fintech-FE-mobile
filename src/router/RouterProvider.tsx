@@ -6,6 +6,9 @@ import Main from '@/pages/Main';
 import QrScan from '@/pages/QrScan';
 import UsageHistory from '@/pages/UsageHistory';
 import Filter from '@/pages/UsageHistory/Filter';
+import Payment from '@/pages/Payment';
+import EnterPassword from '@/pages/Payment/EnterPassword';
+import Success from '@/pages/Payment/Success';
 
 const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
@@ -36,6 +39,18 @@ const CustomRouterProvider = () => {
     {
       path: 'history/filter',
       element: <Filter />,
+    },
+    {
+      path: 'payment',
+      element: <Payment />,
+    },
+    {
+      path: 'payment/password',
+      element: <EnterPassword />,
+    },
+    {
+      path: 'payment/success',
+      element: <Success />,
     },
   ]);
 
