@@ -34,6 +34,36 @@ export const rightSpace = style({
   width: '24px', // 오른쪽 공간 확보용 (아이콘 자리)
 });
 
+export const cardWrapper = style({
+  padding: '16px 0',
+  overflowX: 'auto',
+  WebkitOverflowScrolling: 'touch',
+});
+
+export const scrollArea = style({
+  display: 'flex',
+  gap: '12px',
+  padding: '0 20px',
+});
+
+export const card = style({
+  minWidth: '240px',
+  height: '140px',
+  borderRadius: '12px',
+  backgroundColor: '#1D4ED8',
+  color: '#fff',
+  display: 'flex',
+  alignItems: 'flex-end',
+  padding: '16px',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+  flexShrink: 0,
+});
+
+export const cardNumber = style({
+  fontSize: '16px',
+  fontWeight: 'bold',
+});
+
 export const nav = style({
   position: 'fixed',
   bottom: 0,
