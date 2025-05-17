@@ -64,6 +64,24 @@ export const cardNumber = style({
   fontWeight: 'bold',
 });
 
+export const cardActionWrapper = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '12px',
+  padding: '0 20px 16px',
+});
+
+export const cardActionButton = style({
+  flex: 1,
+  height: '44px',
+  backgroundColor: '#F3F4F6',
+  border: '1px solid #D1D5DB',
+  borderRadius: '8px',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  color: '#111827',
+});
+
 export const nav = style({
   position: 'fixed',
   bottom: 0,
