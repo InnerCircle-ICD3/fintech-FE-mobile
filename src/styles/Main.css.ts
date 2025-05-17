@@ -7,6 +7,33 @@ export const wrapper = style({
   paddingBottom: '80px',
 });
 
+export const header = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '16px 20px',
+  height: '60px',
+  backgroundColor: '#ffffff',
+  borderBottom: '1px solid #e5e7eb',
+  position: 'sticky',
+  top: 0,
+  zIndex: 10,
+});
+
+export const logo = style({
+  fontSize: '24px',
+});
+
+export const title = style({
+  fontSize: '18px',
+  fontWeight: 'bold',
+  color: '#111827',
+});
+
+export const rightSpace = style({
+  width: '24px', // 오른쪽 공간 확보용 (아이콘 자리)
+});
+
 export const nav = style({
   position: 'fixed',
   bottom: 0,
