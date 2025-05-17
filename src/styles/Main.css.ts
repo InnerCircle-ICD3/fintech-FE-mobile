@@ -36,7 +36,9 @@ export const rightSpace = style({
 
 export const cardWrapper = style({
   padding: '16px 0',
+  display: 'flex',
   overflowX: 'auto',
+  scrollbarWidth: 'none',
   WebkitOverflowScrolling: 'touch',
 });
 
@@ -107,6 +109,9 @@ export const viewAllHistory = style({
 });
 
 export const historyList = style({
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',
