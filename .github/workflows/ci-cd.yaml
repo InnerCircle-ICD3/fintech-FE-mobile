@@ -36,7 +36,7 @@ jobs:
 
   trigger-jenkins:
     needs: build-and-test
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/test')
     runs-on: ubuntu-latest
     
     steps:
