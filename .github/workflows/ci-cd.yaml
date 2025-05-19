@@ -45,16 +45,29 @@ jobs:
         # Jenkins CSRF 방지 토큰 가져오기
         CRUMB=$(curl -s "${{ secrets.JENKINS_URL }}/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)" -u "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }}" || echo ":")
         
+        # DOCKER_REGISTRY 기본값 설정
+        DOCKER_REGISTRY="${{ secrets.DOCKER_REGISTRY }}"
+        if [ -z "$DOCKER_REGISTRY" ]; then
+          DOCKER_REGISTRY="nullplusnull"
+        fi
+        
         # Jenkins 작업 트리거
         curl -X POST \
           -u "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }}" \
           -H "$CRUMB" \
           -d "BRANCH_NAME=${{ github.ref_name }}" \
           -d "COMMIT_SHA=${{ github.sha }}" \
+          -d "DOCKER_REGISTRY=$DOCKER_REGISTRY" \
           "${{ secrets.JENKINS_URL }}/job/${{ secrets.JENKINS_JOB_NAME }}/buildWithParameters?token=${{ secrets.JENKINS_API_TOKEN }}"
 
     - name: Debug Jenkins call
       run: |
+        # DOCKER_REGISTRY 기본값 설정
+        DOCKER_REGISTRY="${{ secrets.DOCKER_REGISTRY }}"
+        if [ -z "$DOCKER_REGISTRY" ]; then
+          DOCKER_REGISTRY="3.39.111.97:5000"
+        fi
+        
         echo "Attempting to call Jenkins at ${{ secrets.JENKINS_URL }}"
         curl -v -u "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }}" \
-          "${{ secrets.JENKINS_URL }}/job/${{ secrets.JENKINS_JOB_NAME }}/buildWithParameters?token=${{ secrets.JENKINS_API_TOKEN }}&BRANCH_NAME=${{ github.ref_name }}" 
+          "${{ secrets.JENKINS_URL }}/job/${{ secrets.JENKINS_JOB_NAME }}/buildWithParameters?token=${{ secrets.JENKINS_API_TOKEN }}&BRANCH_NAME=${{ github.ref_name }}&DOCKER_REGISTRY=$DOCKER_REGISTRY" 
