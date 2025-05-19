@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
+import * as styles from '@/styles/QrScan.css';
+import BottomNav from '@/components/Main/BottomNav';
 
 const QrScan = () => {
   const [qrData, setQrData] = useState<string | null>(null);
@@ -28,11 +30,23 @@ const QrScan = () => {
   };
 
   return (
-    <div>
-      <h1>QR 결제</h1>
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <div className={styles.logo}>💳</div>
+        <h1 className={styles.title}>QR결제</h1>
+        <div className={styles.rightSpace}></div>
+      </header>
       {!qrData ? (
-        <div style={{ width: '100%', maxWidth: 400 }}>
+        <div className={styles.ScannerWrapper}>
+          <p className={styles.ScannerInfo}>화면에 맞게 QR코드를 스캔해주세요.</p>
           <Scanner
+            styles={{
+              video: {
+                width: '80%',
+                height: '80%',
+                borderRadius: '12px',
+              },
+            }}
             onScan={handleScan}
             constraints={{ facingMode: 'environment' }}
             onError={(error) => console.error('QR 스캔 에러:', error)}
@@ -47,6 +61,7 @@ const QrScan = () => {
           <button onClick={handleCancel}>취소</button>
         </div>
       )}
+      <BottomNav />
     </div>
   );
 };
