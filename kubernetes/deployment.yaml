@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fintech-fe-mobile
+  labels:
+    app: fintech-fe-mobile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fintech-fe-mobile
+  template:
+    metadata:
+      labels:
+        app: fintech-fe-mobile
+    spec:
+      containers:
+      - name: fintech-fe-mobile
+        image: ${DOCKER_REGISTRY}/fintech-fe-mobile:${VERSION}
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "300m"
+            memory: "256Mi"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 20
+          periodSeconds: 15
+        env:
+        - name: NODE_ENV
+          value: "production"
