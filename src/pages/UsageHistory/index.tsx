@@ -1,8 +1,10 @@
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { fetchPayments } from '@/api/payments';
 import { useEffect, useState } from 'react';
 import { defaultFilter, PaymentFilter } from './Filter';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import * as styles from '@/styles/UsageHistory.css';
+import BottomNav from '@/components/Main/BottomNav';
 
 export interface PaymentItemType {
   id: string;
@@ -12,10 +14,10 @@ export interface PaymentItemType {
 }
 
 const PaymentItem = ({ date, store, amount }: { date: string; store: string; amount: number }) => (
-  <div style={{ borderBottom: '1px solid #eee', padding: '10px 0' }}>
-    <div>{date}</div>
-    <div>{store}</div>
-    <div>{amount.toLocaleString()}원</div>
+  <div className={styles.paymentList}>
+    <div className={styles.paymentDate}>{date}</div>
+    <div className={styles.paymentName}>{store}</div>
+    <div className={styles.paymentAmount}>{amount.toLocaleString()}원</div>
   </div>
 );
 
@@ -50,13 +52,20 @@ const UsageHistory = () => {
 
   return (
     <div>
-      <h1>사용내역</h1>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <header className={styles.header}>
+        <div className={styles.logo}>💳</div>
+        <h1 className={styles.title}>사용내역</h1>
+        <div className={styles.rightSpace}></div>
+      </header>
+
+      <div className={styles.HistoryInfo}>
         <span>총 {payments?.length ?? 0}건</span>
-        <button onClick={() => navigate('/history/filter?' + searchParams.toString())}>필터</button>
+        <button className={styles.filterButton} onClick={() => navigate('/history/filter?' + searchParams.toString())}>필터</button>
       </div>
 
       <div>{payments?.map((item) => <PaymentItem key={item.id} {...item} />)}</div>
+
+      <BottomNav />
     </div>
   );
 };

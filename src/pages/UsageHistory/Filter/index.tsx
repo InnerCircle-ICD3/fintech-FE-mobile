@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import * as styles from '@/styles/HistoryFilter.css';
 
 export interface PaymentFilter {
   startDate?: string; // YYYY-MM-DD
@@ -38,33 +39,50 @@ const Filter = () => {
   };
 
   return (
-    <div>
-      <h2>필터 설정</h2>
-      <label>조회 기간</label>
-      <input
-        type="date"
-        value={filter.startDate}
-        onChange={(e) => setFilter((f) => ({ ...f, startDate: e.target.value }))}
-      />
-      ~
-      <input
-        type="date"
-        value={filter.endDate}
-        onChange={(e) => setFilter((f) => ({ ...f, endDate: e.target.value }))}
-      />
-      <label>정렬 기준</label>
-      <select
-        value={filter.sortBy}
-        onChange={(e) => setFilter((f) => ({ ...f, sortBy: e.target.value }))}
-      >
-        <option value="date">날짜순</option>
-        <option value="amount">금액순</option>
-      </select>
-      <div style={{ marginTop: '1rem' }}>
-        <button onClick={() => setFilter({ startDate: '', endDate: '', sortBy: 'date' })}>
+    <div className={styles.container}>
+      <h2 className={styles.title}>필터 설정</h2>
+
+      <div>
+        <div className={styles.label}>조회 기간</div>
+        <div className={styles.dateRow}>
+          <input
+            type="date"
+            className={styles.input}
+            value={filter.startDate}
+            onChange={(e) => setFilter((f) => ({ ...f, startDate: e.target.value }))}
+          />
+          <span>~</span>
+          <input
+            type="date"
+            className={styles.input}
+            value={filter.endDate}
+            onChange={(e) => setFilter((f) => ({ ...f, endDate: e.target.value }))}
+          />
+        </div>
+      </div>
+
+      <div>
+        <div className={styles.label}>정렬 기준</div>
+        <select
+          className={styles.select}
+          value={filter.sortBy}
+          onChange={(e) => setFilter((f) => ({ ...f, sortBy: e.target.value }))}
+        >
+          <option value="date">날짜순</option>
+          <option value="amount">금액순</option>
+        </select>
+      </div>
+
+      <div className={styles.buttonGroup}>
+        <button
+          className={styles.resetButton}
+          onClick={() => setFilter({ startDate: '', endDate: '', sortBy: 'date' })}
+        >
           초기화
         </button>
-        <button onClick={handleApply}>조회</button>
+        <button className={styles.applyButton} onClick={handleApply}>
+          조회
+        </button>
       </div>
     </div>
   );
