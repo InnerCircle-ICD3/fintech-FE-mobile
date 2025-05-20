@@ -3,8 +3,11 @@ import { fetchPayments } from '@/api/payments';
 import { PaymentItemType } from '@/pages/UsageHistory';
 import { defaultFilter } from '@/pages/UsageHistory/Filter';
 import * as styles from '@/styles/Main.css';
+import { useNavigate } from 'react-router-dom';
 
 const RecentHistory = () => {
+  const navigate = useNavigate();
+
   const {
     data: payments,
     isLoading,
@@ -20,7 +23,14 @@ const RecentHistory = () => {
     <section className={styles.historyWrapper}>
       <div className={styles.historyHeader}>
         <span className={styles.historyTitle}>최근 이용 내역</span>
-        <button className={styles.viewAllHistory}>전체보기 &gt;</button>
+        <button
+          className={styles.viewAllHistory}
+          onClick={() => {
+            navigate('/history');
+          }}
+        >
+          전체보기 &gt;
+        </button>
       </div>
 
       {isLoading && <div className={styles.historyLoading}>불러오는 중...</div>}
