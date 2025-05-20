@@ -74,12 +74,12 @@ export const passwordFilled = style({
   backgroundColor: '#000',
 });
 
-export const successContainer = style({
+export const resultContainer = style({
   padding: '24px',
   textAlign: 'center',
 });
 
-export const successMessage = style({
+export const resultMessage = style({
   fontSize: '24px',
   fontWeight: 'bold',
 });
