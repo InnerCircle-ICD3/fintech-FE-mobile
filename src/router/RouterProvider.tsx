@@ -9,6 +9,7 @@ import Filter from '@/pages/UsageHistory/Filter';
 import Payment from '@/pages/Payment';
 import EnterPassword from '@/pages/Payment/EnterPassword';
 import Success from '@/pages/Payment/Success';
+import Fail from '@/pages/Payment/Fail/Index';
 
 const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
@@ -52,6 +53,10 @@ const CustomRouterProvider = () => {
       path: 'payment/success',
       element: <Success />,
     },
+    {
+      path: 'payment/fail',
+      element: <Fail />,
+    }
   ]);
 
   return <RouterProvider router={browserRouter} future={{ v7_startTransition: true }} />;

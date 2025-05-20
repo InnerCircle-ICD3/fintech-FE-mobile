@@ -15,10 +15,27 @@ export const payInfoBox = style({
   marginBottom: '24px',
 });
 
+export const buttonGroup = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '8px',
+});
+
 export const payButton = style({
   width: '100%',
   padding: '12px',
   backgroundColor: '#007aff',
+  color: 'white',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  borderRadius: '8px',
+  border: 'none',
+});
+
+export const cancelButton = style({
+  width: '100%',
+  padding: '12px',
+  backgroundColor: 'gray',
   color: 'white',
   fontWeight: 'bold',
   fontSize: '16px',
@@ -74,12 +91,12 @@ export const passwordFilled = style({
   backgroundColor: '#000',
 });
 
-export const successContainer = style({
+export const resultContainer = style({
   padding: '24px',
   textAlign: 'center',
 });
 
-export const successMessage = style({
+export const resultMessage = style({
   fontSize: '24px',
   fontWeight: 'bold',
 });
