@@ -15,10 +15,27 @@ export const payInfoBox = style({
   marginBottom: '24px',
 });
 
+export const buttonGroup = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '8px',
+});
+
 export const payButton = style({
   width: '100%',
   padding: '12px',
   backgroundColor: '#007aff',
+  color: 'white',
+  fontWeight: 'bold',
+  fontSize: '16px',
+  borderRadius: '8px',
+  border: 'none',
+});
+
+export const cancelButton = style({
+  width: '100%',
+  padding: '12px',
+  backgroundColor: 'gray',
   color: 'white',
   fontWeight: 'bold',
   fontSize: '16px',

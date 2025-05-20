@@ -15,9 +15,14 @@ const Payment = () => {
         <p>상품명: 무선 이어폰</p>
         <p>금액: 59,000원</p>
       </div>
-      <button className={styles.payButton} onClick={handleClickPay}>
-        결제하기
-      </button>
+      <div className={styles.buttonGroup}>
+        <button className={styles.payButton} onClick={handleClickPay}>
+          결제하기
+        </button>
+        <button className={styles.cancelButton} onClick={() => navigate('/payment/fail')}>
+          취소
+        </button>
+      </div>
     </div>
   );
 };
