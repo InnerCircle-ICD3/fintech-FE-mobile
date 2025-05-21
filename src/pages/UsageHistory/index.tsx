@@ -15,8 +15,10 @@ export interface PaymentItemType {
 
 const PaymentItem = ({ date, store, amount }: { date: string; store: string; amount: number }) => (
   <div className={styles.paymentList}>
-    <div className={styles.paymentDate}>{date}</div>
-    <div className={styles.paymentName}>{store}</div>
+    <div>
+      <div className={styles.paymentDate}>{date}</div>
+      <div className={styles.paymentName}>{store}</div>
+    </div>
     <div className={styles.paymentAmount}>{amount.toLocaleString()}원</div>
   </div>
 );
@@ -60,7 +62,12 @@ const UsageHistory = () => {
 
       <div className={styles.HistoryInfo}>
         <span>총 {payments?.length ?? 0}건</span>
-        <button className={styles.filterButton} onClick={() => navigate('/history/filter?' + searchParams.toString())}>필터</button>
+        <button
+          className={styles.filterButton}
+          onClick={() => navigate('/history/filter?' + searchParams.toString())}
+        >
+          필터
+        </button>
       </div>
 
       <div>{payments?.map((item) => <PaymentItem key={item.id} {...item} />)}</div>
