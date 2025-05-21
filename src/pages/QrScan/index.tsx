@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
 import * as styles from '@/styles/QrScan.css';
 import BottomNav from '@/components/Main/BottomNav';
+import Payment from '../Payment';
 
 const QrScan = () => {
   const [qrData, setQrData] = useState<string | null>(null);
@@ -53,13 +54,7 @@ const QrScan = () => {
           />
         </div>
       ) : (
-        <div>
-          <p>
-            <strong>QR 데이터:</strong> {qrData}
-          </p>
-          <button onClick={handleConfirm}>확인</button>
-          <button onClick={handleCancel}>취소</button>
-        </div>
+        <Payment />
       )}
       <BottomNav />
     </div>

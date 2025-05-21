@@ -5,14 +5,19 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const handleClickPay = () => {
-    navigate('/payment/password');
+    navigate('/payment/password', {
+      state: {
+        store: '네이버 스토어',
+        amount: 59000,
+      },
+    });
   };
 
   return (
     <div className={styles.payContainer}>
       <h1 className={styles.payTitle}>상품 결제</h1>
       <div className={styles.payInfoBox}>
-        <p>상품명: 무선 이어폰</p>
+        <p>판매처: 네이버 스토어</p>
         <p>금액: 59,000원</p>
       </div>
       <div className={styles.buttonGroup}>
