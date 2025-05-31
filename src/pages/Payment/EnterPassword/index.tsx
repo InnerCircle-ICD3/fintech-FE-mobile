@@ -18,7 +18,7 @@ const EnterPassword = () => {
       setTimeout(() => {
         if (password === CORRECT_PASSWORD) {
           if (!store || !amount) {
-            navigate('/payment/fail');
+            navigate('/payment/fail', { replace: true });
           } else {
             const today = new Date();
             const year = today.getFullYear().toString();
@@ -32,7 +32,7 @@ const EnterPassword = () => {
               store: store,
               amount: amount,
             });
-            navigate('/payment/success');
+            navigate('/payment/success', { replace: true });
           }
         } else {
           alert('비밀번호가 일치하지 않습니다.');
