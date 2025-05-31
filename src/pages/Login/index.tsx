@@ -2,18 +2,23 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as styles from '@/styles/Login.css';
 import { auth } from '@/api/auth';
+import { useAuthStore } from '@/store/useAuthStore';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const setUser = useAuthStore((state) => state.setUser);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const success = await auth.login(email, password);
+    const user = auth.login(email, password);
 
-    if (success) {
+    if (user) {
+      setUser({ email: user.email, name: user.name });
       alert('login 성공!');
+      navigate('/', { replace: true });
     } else {
       alert('login 실패!');
     }

@@ -5,14 +5,12 @@ type User = {
   password: string;
 };
 
-const users: User[] = [];
+const users: User[] = [{ name: 'a', phone: '010-1234-5678', email: 'a@a.a', password: 'a' }];
 
 export const auth = {
-  login: (email: string, password: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      const found = users.find((u) => u.email === email && u.password === password);
-      setTimeout(() => resolve(!!found), 500); // 0.5초 지연
-    });
+  login: (email: string, password: string): User | undefined => {
+    const found = users.find((u) => u.email === email && u.password === password);
+    return found;
   },
 
   register: (user: User): Promise<boolean> => {

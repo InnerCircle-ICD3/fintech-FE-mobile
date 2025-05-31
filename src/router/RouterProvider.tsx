@@ -1,4 +1,5 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ProtectedRoute } from './ProtectedRoute';
 import Login from '@/pages/Login';
 import SignUp from '@/pages/Login/SignUp';
 import Register from '@/pages/Register';
@@ -15,7 +16,46 @@ const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
     {
       path: '',
-      element: <Main />,
+      element: (
+        <ProtectedRoute>
+          <Outlet />
+        </ProtectedRoute>
+      ),
+      children: [
+        { path: '', element: <Main /> },
+        {
+          path: 'register',
+          element: <Register />,
+        },
+        {
+          path: 'qr',
+          element: <QrScan />,
+        },
+        {
+          path: 'history',
+          element: <UsageHistory />,
+        },
+        {
+          path: 'history/filter',
+          element: <Filter />,
+        },
+        {
+          path: 'payment',
+          element: <Payment />,
+        },
+        {
+          path: 'payment/password',
+          element: <EnterPassword />,
+        },
+        {
+          path: 'payment/success',
+          element: <Success />,
+        },
+        {
+          path: 'payment/fail',
+          element: <Fail />,
+        },
+      ],
     },
     {
       path: 'login',
@@ -25,38 +65,6 @@ const CustomRouterProvider = () => {
       path: 'signup',
       element: <SignUp />,
     },
-    {
-      path: 'register',
-      element: <Register />,
-    },
-    {
-      path: 'qr',
-      element: <QrScan />,
-    },
-    {
-      path: 'history',
-      element: <UsageHistory />,
-    },
-    {
-      path: 'history/filter',
-      element: <Filter />,
-    },
-    {
-      path: 'payment',
-      element: <Payment />,
-    },
-    {
-      path: 'payment/password',
-      element: <EnterPassword />,
-    },
-    {
-      path: 'payment/success',
-      element: <Success />,
-    },
-    {
-      path: 'payment/fail',
-      element: <Fail />,
-    }
   ]);
 
   return <RouterProvider router={browserRouter} future={{ v7_startTransition: true }} />;
