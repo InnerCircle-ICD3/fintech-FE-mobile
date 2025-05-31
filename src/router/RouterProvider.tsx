@@ -11,6 +11,7 @@ import Payment from '@/pages/Payment';
 import EnterPassword from '@/pages/Payment/EnterPassword';
 import Success from '@/pages/Payment/Success';
 import Fail from '@/pages/Payment/Fail/Index';
+import My from '@/pages/My';
 
 const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
@@ -54,6 +55,10 @@ const CustomRouterProvider = () => {
         {
           path: 'payment/fail',
           element: <Fail />,
+        },
+        {
+          path: 'my',
+          element: <My />,
         },
       ],
     },

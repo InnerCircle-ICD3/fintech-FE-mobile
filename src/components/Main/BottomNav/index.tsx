@@ -22,7 +22,14 @@ const BottomNav = () => {
       >
         QR
       </button>
-      <button className={styles.sideButton}>마이</button>
+      <button
+        className={styles.sideButton}
+        onClick={() => {
+          navigate('/my');
+        }}
+      >
+        마이
+      </button>
     </nav>
   );
 };
