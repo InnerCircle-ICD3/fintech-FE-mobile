@@ -61,6 +61,13 @@ export const card = style({
   flexShrink: 0,
 });
 
+export const selected = style([
+  card,
+  {
+    border: '3px solid #60A5FA',
+  },
+]);
+
 export const cardNumber = style({
   fontSize: '16px',
   fontWeight: 'bold',

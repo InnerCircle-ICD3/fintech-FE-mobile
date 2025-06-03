@@ -3,20 +3,21 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import PasswordKeypad from '@/components/PasswordKeypad';
 import * as styles from '@/styles/Payment.css';
 import { mockData } from '@/api/payments';
-
-const CORRECT_PASSWORD = '123456'; // 임시 목업 비밀번호
+import { card } from '@/api/card';
 
 const EnterPassword = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const location = useLocation();
-  const { store, amount } = location.state;
+  const { store, amount, cardNumber } = location.state;
+
+  const correctPassword = card.get(cardNumber)?.paymentPassword;
 
   useEffect(() => {
     if (password.length === 6) {
       setTimeout(() => {
-        if (password === CORRECT_PASSWORD) {
+        if (password === correctPassword) {
           if (!store || !amount) {
             navigate('/payment/fail', { replace: true });
           } else {
