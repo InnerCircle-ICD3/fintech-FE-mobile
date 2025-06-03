@@ -22,12 +22,16 @@ export const cardInfos: CardForm[] = [
     birth: '990113',
     password2Digits: '12',
     cvc: '123',
-    paymentPassword: '123456',
+    paymentPassword: '111111',
   },
 ];
 
 export const card = {
   register: (card: CardForm) => {
     cardInfos.push(card);
+  },
+
+  get: (cardNumber: string) => {
+    return cardInfos.find((c) => c.cardNumber == cardNumber);
   },
 };
