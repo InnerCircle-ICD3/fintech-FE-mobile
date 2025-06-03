@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import { CardNumberInput } from './CardNumberInput';
 import { ExpiryInput } from './ExpiryInput';
 import * as styles from '@/styles/Register.css';
-import { CardForm, register } from '@/api/register';
+import { CardForm, card } from '@/api/card';
 import PasswordInput from './PasswordInput';
 import { useNavigate } from 'react-router-dom';
 
@@ -132,7 +132,7 @@ const Register = () => {
         <PasswordInput
           onSubmit={(value) => {
             setForm({ ...form, paymentPassword: value });
-            register(form);
+            card.register(form);
             alert('카드 정보가 등록되었습니다.');
             navigate('/');
           }}

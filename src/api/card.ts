@@ -18,6 +18,8 @@ const cardInfos: CardForm[] = [
   },
 ];
 
-export const register = (card: CardForm) => {
-  cardInfos.push(card);
+export const card = {
+  register: (card: CardForm) => {
+    cardInfos.push(card);
+  },
 };
