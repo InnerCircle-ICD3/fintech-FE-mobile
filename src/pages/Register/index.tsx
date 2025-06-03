@@ -37,6 +37,28 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (form.cardNumber.length !== 16) {
+      alert('카드번호를 입력해주세요.');
+      return;
+    }
+    if (form.expiry.length !== 4) {
+      alert('유효기간을 입력해주세요.');
+      return;
+    }
+    if (form.birth.length !== 6) {
+      alert('생년월일을 입력해주세요.');
+      return;
+    }
+    if (form.password2Digits.length !== 2) {
+      alert('카드 비밀번호 앞 2자리를 입력해주세요.');
+      return;
+    }
+    if (form.cvc.length !== 3) {
+      alert('cvc 번호를 입력해주세요.');
+      return;
+    }
+
     setShowPasswordInput(true);
   };
 
