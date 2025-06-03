@@ -131,8 +131,8 @@ const Register = () => {
       ) : (
         <PasswordInput
           onSubmit={(value) => {
-            setForm({ ...form, paymentPassword: value });
-            card.register(form);
+            const updatedForm = { ...form, paymentPassword: value };
+            card.register(updatedForm);
             alert('카드 정보가 등록되었습니다.');
             navigate('/');
           }}
