@@ -52,7 +52,7 @@ const Login = () => {
       </form>
       <button className={styles.secondaryButton} onClick={() => navigate('/signup')}>
         회원가입
-      </button>{' '}
+      </button>
     </div>
   );
 };
