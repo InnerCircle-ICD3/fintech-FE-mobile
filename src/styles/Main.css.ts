@@ -12,7 +12,7 @@ export const header = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '16px 20px',
-  height: '60px',
+  height: '48px',
   backgroundColor: '#ffffff',
   borderBottom: '1px solid #e5e7eb',
   position: 'sticky',
@@ -49,17 +49,17 @@ export const scrollArea = style({
 });
 
 export const card = style({
-  minWidth: '240px',
-  height: '140px',
-  borderRadius: '12px',
-  backgroundColor: '#1D4ED8',
-  color: '#fff',
-  display: 'flex',
-  alignItems: 'flex-end',
-  padding: '16px',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+  position: 'relative',
   flexShrink: 0,
+  cursor: 'pointer',
 });
+
+export const cardInner = style({
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+});
+
 
 export const selected = style([
   card,
@@ -68,9 +68,24 @@ export const selected = style([
   },
 ]);
 
+export const cardLabel = style({
+  position: 'absolute',
+  top: '12px',
+  right: '16px',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  color: '#fff',
+  zIndex: 2,
+});
+
 export const cardNumber = style({
+  position: 'absolute',
+  bottom: '30px',
+  left: '16px',
   fontSize: '16px',
   fontWeight: 'bold',
+  color: '#fff',
+  zIndex: 2,
 });
 
 export const cardActionWrapper = style({
@@ -80,15 +95,31 @@ export const cardActionWrapper = style({
   padding: '0 20px 16px',
 });
 
-export const cardActionButton = style({
+const baseButton = {
   flex: 1,
   height: '44px',
-  backgroundColor: '#F3F4F6',
-  border: '1px solid #D1D5DB',
-  borderRadius: '8px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '6px',
   fontSize: '14px',
   fontWeight: 'bold',
-  color: '#111827',
+  borderRadius: '12px',
+  border: 'none',
+  cursor: 'pointer',
+};
+
+export const cardAddButton = style({
+  ...baseButton,
+  backgroundColor: '#18254C',
+  color: '#ffffff',
+});
+
+export const cardManageButton = style({
+  ...baseButton,
+  backgroundColor: '#ffffff',
+  color: '#6B7280',
+  border: '1px solid #D1D5DB',
 });
 
 export const historyWrapper = style({

@@ -1,8 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
 import * as styles from '@/styles/Login.css';
 import { auth } from '@/api/auth';
 import { useAuthStore } from '@/store/useAuthStore';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Label } from '@/components/ui/label';
+import Flex from '@/components/layout/flex';
+import LogoMain from '@/assets/img/logo-main.svg?react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,18 +29,25 @@ const Login = () => {
   };
 
   return (
+
     <div className={styles.container}>
-      <h1 className={styles.title}>로그인</h1>
+      <LogoMain/>
+
       <form className={styles.form} onSubmit={handleLogin}>
-        <input
-          className={styles.input}
-          type="email"
-          placeholder="이메일"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
+        <Flex direction={'column'} grow={'wFull'} gap={'8px'}>
+          <Label htmlFor="rememberMe">아이디</Label>
+          <input
+            className={styles.input}
+            type="email"
+            placeholder="이메일"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </Flex>
+
+        <Flex direction={'column'} grow={'wFull'} gap={'8px'}>
+          <Label htmlFor="rememberMe">비밀번호</Label>
         <input
           className={styles.input}
           type="password"
@@ -45,7 +56,8 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <br />
+        </Flex>
+
         <button type="submit" className={styles.button}>
           로그인
         </button>
