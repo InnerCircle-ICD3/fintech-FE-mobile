@@ -1,5 +1,27 @@
 import { style } from '@vanilla-extract/css';
 
+export const header = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '16px 20px',
+  height: '48px',
+  backgroundColor: '#ffffff',
+  borderBottom: '1px solid #e5e7eb',
+  position: 'sticky',
+  top: 0,
+  zIndex: 10,
+});
+
+export const backButton = style({
+  backgroundColor: 'transparent',
+  borderColor: 'transparent',
+});
+
+export const headerName = style({
+  fontWeight: 'bold',
+});
+
 export const form = style({
   display: 'flex',
   flexDirection: 'column',
