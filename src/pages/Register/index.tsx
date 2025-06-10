@@ -6,6 +6,7 @@ import * as styles from '@/styles/Register.css';
 import { CardForm, card } from '@/api/card';
 import PasswordInput from './PasswordInput';
 import { useNavigate } from 'react-router-dom';
+import BackIcon from '@/assets/img/back-icon.svg?react';
 
 const Register = () => {
   const navigate = useNavigate();
@@ -64,6 +65,13 @@ const Register = () => {
 
   return (
     <div>
+      <header className={styles.header}>
+        <button className={styles.backButton} onClick={() => navigate('/')}>
+          <BackIcon />
+        </button>
+        <div className={styles.headerName}>카드 등록하기</div>
+        <div></div>
+      </header>
       {!showPasswordInput ? (
         <form onSubmit={handleSubmit} className={styles.form}>
           <label className={styles.label}>
