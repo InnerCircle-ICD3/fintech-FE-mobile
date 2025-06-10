@@ -1,34 +1,50 @@
 import * as styles from '@/styles/Main.css';
 import { useNavigate } from 'react-router-dom';
+import {
+  bottomNav,
+  bottomNavBackground,
+  bottomNavIcon,
+  bottomNavItem,
+  bottomNavText,
+  qrCodeButton, qrCodeButtonIcon,
+} from '@/styles/Main.css';
+
+import BottomNavBackground from '@/assets/img/bottom-nav.svg?react';
+import HomeIcon from '@/assets/img/icon-home.svg?react';
+import QrButtonIcon from '@/assets/img/qr-button.svg?react';
+import UserIcon from '@/assets/img/icon-user.svg?react';
 
 const BottomNav = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className={styles.nav}>
+    <nav className={bottomNav}>
+      <BottomNavBackground className={bottomNavBackground} />
       <button
-        className={styles.sideButton}
+        className={bottomNavItem}
         onClick={() => {
           navigate('/');
         }}
       >
-        홈
+        <HomeIcon className={bottomNavIcon} />
+        <span className={bottomNavText}>홈</span>
       </button>
       <button
-        className={styles.qrButton}
+        className={qrCodeButton}
         onClick={() => {
           navigate('/qr');
         }}
       >
-        QR
+        <QrButtonIcon className={qrCodeButtonIcon} />
       </button>
       <button
-        className={styles.sideButton}
+        className={bottomNavItem}
         onClick={() => {
           navigate('/my');
         }}
       >
-        마이
+        <UserIcon className={bottomNavIcon} />
+        <span className={bottomNavText}>마이</span>
       </button>
     </nav>
   );

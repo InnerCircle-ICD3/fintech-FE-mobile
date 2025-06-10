@@ -212,39 +212,74 @@ export const historyError = style({
   color: '#EF4444',
 });
 
-export const nav = style({
+export const bottomNav = style({
+  width : '100%',
   position: 'fixed',
   bottom: 0,
   left: 0,
   right: 0,
-  height: '60px',
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'space-around',
   alignItems: 'center',
-  backgroundColor: '#ffffff',
-  borderTop: '1px solid #e5e7eb',
-  padding: '0 20px',
+  backgroundColor: 'transparent', // 배경 SVG가 보이도록 투명하게 설정
   zIndex: 10,
 });
 
-export const sideButton = style({
-  background: 'none',
-  border: 'none',
-  fontSize: '14px',
-  color: '#111827',
+export const bottomNavBackground = style({
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  width : '100%',
+  height : '100%',
+  zIndex: -1, // 다른 요소들 뒤에 위치
 });
 
-export const qrButton = style({
-  position: 'absolute',
-  top: '-25px',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  width: '50px',
-  height: '50px',
-  borderRadius: '25px',
-  backgroundColor: '#1D4ED8',
-  color: '#fff',
+export const bottomNavItem = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: 'none',
   border: 'none',
+  cursor: 'pointer',
+  padding: '0',
+  gap: '4px',
+  flex: 1, // 공간을 균등하게 분배
+});
+
+export const bottomNavIcon = style({
+  color: '#6B7280', // 기본 아이콘 색상
+  selectors: {
+    [`${bottomNavItem}:hover &`]: {
+      color: '#111827', // 호버 시 색상 변경 (선택된 상태에 따라 변경 가능)
+    },
+    // 활성 상태에 따른 색상 변경은 라우터 상태에 따라 컴포넌트에서 동적으로 적용하는 것이 좋습니다.
+  },
+});
+
+export const bottomNavText = style({
   fontSize: '14px',
+  color: '#6B7280', // 기본 텍스트 색상
+  selectors: {
+    [`${bottomNavItem}:hover &`]: {
+      color: '#111827', // 호버 시 색상 변경
+    },
+  },
+});
+
+export const qrCodeButton = style({
+  position: 'relative', // 중앙 정렬을 위해 relative로 변경
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  transform: 'translateY(-20px)', // 이미지 위치에 따라 조절
   zIndex: 11,
+});
+
+export const qrCodeButtonIcon = style({
+  width: '100%',
+  height: '100%',
 });
