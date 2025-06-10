@@ -122,6 +122,7 @@ export const cardManageButton = style({
   border: '1px solid #D1D5DB',
 });
 
+
 export const historyWrapper = style({
   padding: '20px',
 });
@@ -158,46 +159,70 @@ export const historyList = style({
 export const historyItem = style({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: '#F9FAFB',
-  padding: '12px',
-  borderRadius: '8px',
+  backgroundColor: '#F9FAFB', // 이미지의 배경색에 맞춰 조정
+  padding: '16px', // 이미지와 유사하게 패딩 조정
+  borderRadius: '12px', // 이미지와 유사하게 둥근 모서리 조정
+  boxShadow: '0 1px 3px rgba(0,0,0,0.05)', // 그림자 효과 추가 (선택 사항)
+  gap: '16px', // 로고와 텍스트 사이 간격
 });
 
-export const historyIcon = style({
-  fontSize: '24px',
-  marginRight: '12px',
+export const historyCardLogoContainer = style({
+  width: '48px', // 로고 컨테이너 크기
+  height: '48px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '8px', // 로고 컨테이너 둥근 모서리
+  overflow: 'hidden', // 로고가 컨테이너를 넘어가지 않도록
+  backgroundColor: '#000000', // 현대카드 로고 배경색 (이미지 기반)
+});
+
+export const historyCardLogo = style({
+  width: '100%',
+  height: 'auto',
+  display: 'block', // 인라인 요소의 불필요한 공백 제거
 });
 
 export const historyDetails = style({
   flex: 1,
   display: 'flex',
+  justifyContent: 'space-between', // 카드 정보와 금액/날짜를 양 끝으로 정렬
+  alignItems: 'center', // 세로 중앙 정렬
+});
+
+export const historyCardInfo = style({
+  display: 'flex',
   flexDirection: 'column',
-  gap: '4px',
+  gap: '4px', // 현대카드, 승인완료 텍스트 사이 간격
 });
 
-export const historyCardRow = style({
-  display: 'flex',
-  justifyContent: 'space-between',
-  fontSize: '14px',
-});
-
-export const historyStore = style({
+export const historyCardName = style({
+  fontSize: '16px',
   fontWeight: 'bold',
+  color: '#111827',
 });
 
-export const historyInfoRow = style({
-  display: 'flex',
-  justifyContent: 'space-between',
+export const historyApprovalStatus = style({
   fontSize: '13px',
   color: '#6B7280',
 });
 
-export const historyAmount = style({
-  fontWeight: 'bold',
+export const historyAmountAndDate = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-end', // 금액과 날짜를 오른쪽으로 정렬
+  gap: '4px', // 금액과 날짜 텍스트 사이 간격
 });
 
-export const historyDate = style({
-  fontSize: '13px',
+export const historyAmountText = style({
+  fontSize: '18px', // 금액 폰트 크기 조정
+  fontWeight: 'bold',
+  color: '#111827',
+});
+
+export const historyDateText = style({
+  fontSize: '13px', // 날짜 폰트 크기 조정
+  color: '#6B7280',
 });
 
 export const historyLoading = style({
@@ -211,6 +236,8 @@ export const historyError = style({
   textAlign: 'center',
   color: '#EF4444',
 });
+
+
 
 export const bottomNav = style({
   width : '100%',
@@ -227,10 +254,9 @@ export const bottomNav = style({
 
 export const bottomNavBackground = style({
   position: 'absolute',
-  bottom: 0,
+  bottom: -10,
   left: 0,
   width : '100%',
-  height : '100%',
   zIndex: -1, // 다른 요소들 뒤에 위치
 });
 
