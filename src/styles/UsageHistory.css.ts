@@ -20,8 +20,9 @@ export const header = style({
   zIndex: 10,
 });
 
-export const logo = style({
-  fontSize: '24px',
+export const backButton = style({
+  backgroundColor: 'transparent',
+  borderColor: 'transparent',
 });
 
 export const title = style({
