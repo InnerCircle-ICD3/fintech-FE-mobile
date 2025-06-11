@@ -5,6 +5,7 @@ import { defaultFilter, PaymentFilter } from './Filter';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import * as styles from '@/styles/UsageHistory.css';
 import BottomNav from '@/components/Main/BottomNav';
+import BackIcon from '@/assets/img/back-icon.svg?react';
 
 export interface PaymentItemType {
   id: string;
@@ -55,7 +56,9 @@ const UsageHistory = () => {
   return (
     <div>
       <header className={styles.header}>
-        <div className={styles.logo}>💳</div>
+        <button className={styles.backButton}>
+          <BackIcon />
+        </button>
         <h1 className={styles.title}>사용내역</h1>
         <div className={styles.rightSpace}></div>
       </header>
