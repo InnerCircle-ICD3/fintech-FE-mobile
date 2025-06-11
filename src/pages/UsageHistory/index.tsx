@@ -56,7 +56,7 @@ const UsageHistory = () => {
   return (
     <div>
       <header className={styles.header}>
-        <button className={styles.backButton}>
+        <button className={styles.backButton} onClick={() => navigate('/')}>
           <BackIcon />
         </button>
         <h1 className={styles.title}>사용내역</h1>
