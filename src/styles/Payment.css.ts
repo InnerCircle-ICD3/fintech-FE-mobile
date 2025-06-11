@@ -96,7 +96,30 @@ export const resultContainer = style({
   textAlign: 'center',
 });
 
+export const messageContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginTop: '25%',
+});
+
 export const resultMessage = style({
   fontSize: '24px',
   fontWeight: 'bold',
+});
+
+export const homeButton = style({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  alignItems: 'center',
+  height: '64px',
+  fontSize: '1rem',
+  background: '#18254C',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '8px',
+  cursor: 'pointer',
+  margin: '1rem',
 });
