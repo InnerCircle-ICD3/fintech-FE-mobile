@@ -3,6 +3,7 @@ import { Scanner } from '@yudiel/react-qr-scanner';
 import * as styles from '@/styles/QrScan.css';
 import BottomNav from '@/components/Main/BottomNav';
 import Payment from '../Payment';
+import Text from '@/components/ui/text';
 
 const QrScan = () => {
   const [qrData, setQrData] = useState<string | null>(null);
@@ -33,13 +34,11 @@ const QrScan = () => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <div className={styles.logo}>💳</div>
         <h1 className={styles.title}>QR결제</h1>
-        <div className={styles.rightSpace}></div>
       </header>
       {!qrData ? (
         <div className={styles.ScannerWrapper}>
-          <p className={styles.ScannerInfo}>화면에 맞게 QR코드를 스캔해주세요.</p>
+          <p className={styles.ScannerInfo}><Text weight={'medium'}>화면에 맞게 QR코드를 스캔해주세요.</Text></p>
           <Scanner
             styles={{
               video: {

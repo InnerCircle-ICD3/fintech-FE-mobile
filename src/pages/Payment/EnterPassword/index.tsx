@@ -4,9 +4,20 @@ import PasswordKeypad from '@/components/PasswordKeypad';
 import * as styles from '@/styles/Payment.css';
 import { mockData } from '@/api/payments';
 import { card } from '@/api/card';
+import {
+  passwordAttempt,
+  passwordContainer,
+  passwordDot,
+  passwordDotFilled,
+  passwordDotWrapper, passwordHint,
+  passwordTitle,
+} from '@/styles/Payment.css';
+
+const MAX_ATTEMPTS = 5;
 
 const EnterPassword = () => {
   const [password, setPassword] = useState('');
+  const [attempts, setAttempts] = useState(0);
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -18,43 +29,52 @@ const EnterPassword = () => {
     if (password.length === 6) {
       setTimeout(() => {
         if (password === correctPassword) {
-          if (!store || !amount) {
-            navigate('/payment/fail', { replace: true });
-          } else {
-            const today = new Date();
-            const year = today.getFullYear().toString();
-            const month = (today.getMonth() + 1).toString().padStart(2, '0');
-            const day = today.getDate().toString().padStart(2, '0');
-            const dateStr = `${year}-${month}-${day}`;
+          const today = new Date();
+          const year = today.getFullYear().toString();
+          const month = (today.getMonth() + 1).toString().padStart(2, '0');
+          const day = today.getDate().toString().padStart(2, '0');
+          const dateStr = `${year}-${month}-${day}`;
 
-            mockData.push({
-              id: '3',
-              date: dateStr,
-              store: store,
-              amount: amount,
-            });
-            navigate('/payment/success', { replace: true });
-          }
+          mockData.push({ id: '3', date: dateStr, store, amount });
+          navigate('/payment/success', { replace: true });
         } else {
-          alert('비밀번호가 일치하지 않습니다.');
+          const newAttempts = attempts + 1;
+          setAttempts(newAttempts);
           setPassword('');
+
+          if (newAttempts >= MAX_ATTEMPTS) {
+            navigate('/payment/fail', { replace: true });
+          }
         }
       }, 300);
     }
   }, [password]);
 
-  return (
-    <div className={styles.passwordContainer}>
-      <h2 className={styles.passwordTitle}>결제 비밀번호 입력</h2>
+  const getTitleText = () => {
+    if (attempts === 0) return '비밀번호를 입력하세요';
+    return '비밀번호를 다시 입력해주세요';
+  };
 
-      <div className={styles.passwordInputBox}>
+  return (
+    <div className={passwordContainer}>
+      <h2 className={passwordTitle}>{getTitleText()}</h2>
+
+      <div className={passwordDotWrapper}>
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className={`${styles.passwordDigit} ${password.length > i ? styles.passwordFilled : ''}`}
+            className={`${styles.passwordDot} ${
+              password.length > i ? styles.passwordDotFilled : ''
+            }`}
           />
         ))}
       </div>
+
+      {attempts > 0 && (
+        <div className={passwordAttempt}> {`${attempts}/${MAX_ATTEMPTS}`} </div>
+      )}
+
+      <div className={passwordHint}>비밀번호를 잊어버렸어요.</div>
 
       <PasswordKeypad
         onInput={(value) => {

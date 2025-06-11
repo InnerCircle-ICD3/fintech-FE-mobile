@@ -11,7 +11,7 @@ export const wrapper = style({
 export const header = style({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
+  justifyContent: 'center',
   padding: '16px 20px',
   height: '60px',
   backgroundColor: '#ffffff',
@@ -37,7 +37,7 @@ export const rightSpace = style({
 
 export const ScannerWrapper = style({
   borderRadius: '12px',
-  background: 'navy',
+  background: '#18254C',
   padding: '20px',
   display: 'flex',
   flexDirection: 'column',
@@ -46,7 +46,6 @@ export const ScannerWrapper = style({
 
 export const ScannerInfo = style({
   background: 'white',
-  color: 'navy',
   padding: '8px 16px',
   borderRadius: '50px',
   width: '80%',

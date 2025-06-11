@@ -5,7 +5,11 @@ type User = {
   password: string;
 };
 
-const users: User[] = [{ name: 'a', phone: '010-1234-5678', email: 'a@a.a', password: 'a' }];
+const users: User[] = [
+  { name: 'a', phone: '010-1234-5678', email: 'a@a.a', password: 'a' },
+  { name: '최예준', phone: '010-1234-5678', email: 'dpwns108@gmail.com', password: 'choiheon9&' },
+  { name: '테스터', phone: '010-1234-5678', email: 'test@gmail.com', password: 'test1234' },
+];
 
 export const auth = {
   login: (email: string, password: string): User | undefined => {

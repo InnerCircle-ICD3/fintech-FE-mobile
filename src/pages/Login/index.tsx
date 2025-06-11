@@ -21,7 +21,6 @@ const Login = () => {
 
     if (user) {
       setUser({ email: user.email, name: user.name });
-      alert('login 성공!');
       navigate('/', { replace: true });
     } else {
       alert('login 실패!');

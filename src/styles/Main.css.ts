@@ -40,6 +40,7 @@ export const cardWrapper = style({
   overflowX: 'auto',
   scrollbarWidth: 'none',
   WebkitOverflowScrolling: 'touch',
+  width : '100%',
 });
 
 export const scrollArea = style({
