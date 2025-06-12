@@ -7,10 +7,15 @@ import { CardForm, card } from '@/api/card';
 import PasswordInput from './PasswordInput';
 import { useNavigate } from 'react-router-dom';
 import BackIcon from '@/assets/img/back-icon.svg?react';
+import { useCardRegisterStore } from '@/store/useCardRegisterStore';
+import { cardCompanies } from '@/constants/cardCompanies';
 
 const Register = () => {
   const navigate = useNavigate();
   const [showPasswordInput, setShowPasswordInput] = useState(false);
+
+  const { selectedCardCompany, isDrawerOpen, setCardCompany, openDrawer, closeDrawer } =
+    useCardRegisterStore();
 
   const [form, setForm] = useState<CardForm>({
     cardNumber: '',
@@ -73,69 +78,74 @@ const Register = () => {
         <div></div>
       </header>
       {!showPasswordInput ? (
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label className={styles.label}>
-            카드번호
-            <CardNumberInput
-              value={form.cardNumber}
-              onChange={(val) => {
-                setForm({ ...form, cardNumber: val });
-              }}
-            />
-          </label>
+        <div>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <button type="button" onClick={openDrawer} className={styles.cardCompanyButton}>
+              {selectedCardCompany ?? '카드사 선택'}
+            </button>
+            <label className={styles.label}>
+              카드번호
+              <CardNumberInput
+                value={form.cardNumber}
+                onChange={(val) => {
+                  setForm({ ...form, cardNumber: val });
+                }}
+              />
+            </label>
 
-          <label className={styles.label}>
-            유효기간 (MM/YY)
-            <ExpiryInput
-              onChange={(val) => {
-                setForm({ ...form, expiry: val });
-              }}
-            />
-          </label>
+            <label className={styles.label}>
+              유효기간 (MM/YY)
+              <ExpiryInput
+                onChange={(val) => {
+                  setForm({ ...form, expiry: val });
+                }}
+              />
+            </label>
 
-          <label className={styles.label}>
-            생년월일 (6자리)
-            <input
-              type="password"
-              name="birth"
-              inputMode="numeric"
-              maxLength={6}
-              value={form.birth}
-              onChange={handleChange}
-              className={styles.input}
-            />
-          </label>
+            <label className={styles.label}>
+              생년월일 (6자리)
+              <input
+                type="password"
+                name="birth"
+                inputMode="numeric"
+                maxLength={6}
+                value={form.birth}
+                onChange={handleChange}
+                className={styles.input}
+              />
+            </label>
 
-          <label className={styles.label}>
-            카드 비밀번호 앞 2자리
-            <input
-              type="password"
-              name="password2Digits"
-              inputMode="numeric"
-              maxLength={2}
-              value={form.password2Digits}
-              onChange={handleChange}
-              className={styles.input}
-            />
-          </label>
+            <label className={styles.label}>
+              카드 비밀번호 앞 2자리
+              <input
+                type="password"
+                name="password2Digits"
+                inputMode="numeric"
+                maxLength={2}
+                value={form.password2Digits}
+                onChange={handleChange}
+                className={styles.input}
+              />
+            </label>
 
-          <label className={styles.label}>
-            CVC
-            <input
-              type="password"
-              name="cvc"
-              inputMode="numeric"
-              maxLength={3}
-              value={form.cvc}
-              onChange={handleChange}
-              className={styles.input}
-            />
-          </label>
+            <label className={styles.label}>
+              CVC
+              <input
+                type="password"
+                name="cvc"
+                inputMode="numeric"
+                maxLength={3}
+                value={form.cvc}
+                onChange={handleChange}
+                className={styles.input}
+              />
+            </label>
 
-          <button type="submit" className={styles.button}>
-            다음
-          </button>
-        </form>
+            <button type="submit" className={styles.button}>
+              다음
+            </button>
+          </form>
+        </div>
       ) : (
         <PasswordInput
           onSubmit={(value) => {
@@ -146,6 +156,25 @@ const Register = () => {
           }}
         />
       )}
+      {isDrawerOpen ? (
+        <div className={styles.drawerOverlay} onClick={closeDrawer}>
+          <div className={styles.drawerContent} onClick={(e) => e.stopPropagation()}>
+            <div className={styles.dragHandle} />
+            <p className={styles.title}>카드사를 선택해주세요</p>
+            <div className={styles.grid}>
+              {cardCompanies.map((company) => (
+                <button
+                  key={company}
+                  className={styles.gridItem}
+                  onClick={() => setCardCompany(company)}
+                >
+                  {company}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
