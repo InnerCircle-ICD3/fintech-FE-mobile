@@ -6,6 +6,7 @@ type CardRegisterState = {
   setCardCompany: (name: string) => void;
   openDrawer: () => void;
   closeDrawer: () => void;
+  reset: () => void;
 };
 
 export const useCardRegisterStore = create<CardRegisterState>((set) => ({
@@ -14,4 +15,9 @@ export const useCardRegisterStore = create<CardRegisterState>((set) => ({
   setCardCompany: (name) => set({ selectedCardCompany: name, isDrawerOpen: false }),
   openDrawer: () => set({ isDrawerOpen: true }),
   closeDrawer: () => set({ isDrawerOpen: false }),
+  reset: () =>
+    set({
+      selectedCardCompany: null,
+      isDrawerOpen: false,
+    }),
 }));

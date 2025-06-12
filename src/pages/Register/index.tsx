@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { CardNumberInput } from './CardNumberInput';
 import { ExpiryInput } from './ExpiryInput';
@@ -14,8 +14,14 @@ const Register = () => {
   const navigate = useNavigate();
   const [showPasswordInput, setShowPasswordInput] = useState(false);
 
-  const { selectedCardCompany, isDrawerOpen, setCardCompany, openDrawer, closeDrawer } =
+  const { selectedCardCompany, isDrawerOpen, setCardCompany, openDrawer, closeDrawer, reset } =
     useCardRegisterStore();
+
+  useEffect(() => {
+    return () => {
+      reset();
+    };
+  }, [reset]);
 
   const [form, setForm] = useState<CardForm>({
     cardNumber: '',
