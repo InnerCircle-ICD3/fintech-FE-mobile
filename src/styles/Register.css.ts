@@ -52,17 +52,19 @@ export const input = style({
 });
 
 export const button = style({
-  padding: '12px',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  color: 'white',
-  backgroundColor: '#1e90ff',
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  alignItems: 'center',
+  height: '64px',
+  fontSize: '1rem',
+  background: '#18254C',
+  color: '#fff',
   border: 'none',
-  borderRadius: '6px',
+  borderRadius: '8px',
   cursor: 'pointer',
-  ':hover': {
-    backgroundColor: '#187bcd',
-  },
+  margin: '1rem',
 });
 
 export const cardNumberContainer = style({

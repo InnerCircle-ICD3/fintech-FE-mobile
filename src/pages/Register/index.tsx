@@ -133,7 +133,7 @@ const Register = () => {
           </label>
 
           <button type="submit" className={styles.button}>
-            등록하기
+            다음
           </button>
         </form>
       ) : (
