@@ -50,6 +50,11 @@ const Register = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!selectedCardCompany) {
+      alert('카드사를 선택해주세요.');
+      return;
+    }
+
     if (form.cardNumber.length !== 16) {
       alert('카드번호를 입력해주세요.');
       return;
