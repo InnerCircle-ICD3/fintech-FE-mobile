@@ -10,7 +10,6 @@ export const header = style({
   borderBottom: '1px solid #e5e7eb',
   position: 'sticky',
   top: 0,
-  zIndex: 10,
 });
 
 export const backButton = style({
@@ -33,6 +32,22 @@ export const form = style({
   boxSizing: 'border-box',
 });
 
+export const cardCompanyButton = style({
+  padding: '10px',
+  fontSize: '16px',
+  textAlign: 'left',
+  border: '1px solid #ccc',
+  borderRadius: '6px',
+  backgroundColor: '#fff',
+});
+
+export const cardCompanySelectContainer = style({
+  display: 'flex',
+  color: 'grey',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});
+
 export const label = style({
   display: 'flex',
   flexDirection: 'column',
@@ -52,17 +67,19 @@ export const input = style({
 });
 
 export const button = style({
-  padding: '12px',
-  fontSize: '16px',
-  fontWeight: 'bold',
-  color: 'white',
-  backgroundColor: '#1e90ff',
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  alignItems: 'center',
+  height: '64px',
+  fontSize: '1rem',
+  background: '#18254C',
+  color: '#fff',
   border: 'none',
-  borderRadius: '6px',
+  borderRadius: '8px',
   cursor: 'pointer',
-  ':hover': {
-    backgroundColor: '#187bcd',
-  },
+  margin: '1rem',
 });
 
 export const cardNumberContainer = style({
@@ -100,4 +117,53 @@ export const expiryBlock = style({
 export const slash = style({
   fontSize: '20px',
   color: '#666',
+});
+
+export const drawerOverlay = style({
+  position: 'fixed',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  top: 0,
+  backgroundColor: 'rgba(0,0,0,0.3)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'flex-end',
+});
+
+export const drawerContent = style({
+  backgroundColor: '#fff',
+  borderTopLeftRadius: '16px',
+  borderTopRightRadius: '16px',
+  width: '100%',
+  maxHeight: '70%',
+  padding: '16px',
+});
+
+export const dragHandle = style({
+  width: '40px',
+  height: '4px',
+  backgroundColor: '#ccc',
+  borderRadius: '2px',
+  margin: '0 auto 12px',
+});
+
+export const title = style({
+  textAlign: 'center',
+  fontSize: '16px',
+  marginBottom: '12px',
+});
+
+export const grid = style({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '8px',
+});
+
+export const gridItem = style({
+  padding: '12px',
+  borderRadius: '8px',
+  border: '1px solid #ccc',
+  textAlign: 'center',
+  backgroundColor: '#f9f9f9',
 });
