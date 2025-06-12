@@ -41,6 +41,13 @@ export const cardCompanyButton = style({
   backgroundColor: '#fff',
 });
 
+export const cardCompanySelectContainer = style({
+  display: 'flex',
+  color: 'grey',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});
+
 export const label = style({
   display: 'flex',
   flexDirection: 'column',

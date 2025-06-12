@@ -81,7 +81,12 @@ const Register = () => {
         <div>
           <form onSubmit={handleSubmit} className={styles.form}>
             <button type="button" onClick={openDrawer} className={styles.cardCompanyButton}>
-              {selectedCardCompany ?? '카드사 선택'}
+              {selectedCardCompany ?? (
+                <div className={styles.cardCompanySelectContainer}>
+                  <div>카드사 선택</div>
+                  <div>▼</div>
+                </div>
+              )}
             </button>
             <label className={styles.label}>
               카드번호
