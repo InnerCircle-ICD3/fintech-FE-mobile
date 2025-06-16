@@ -58,11 +58,11 @@ export const label = style({
 });
 
 export const input = style({
-  marginTop: '6px',
-  padding: '10px',
-  fontSize: '16px',
+  padding: '0px 10px',
+  height: '72px',
+  fontSize: '18px',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
   boxSizing: 'border-box',
 });

@@ -114,44 +114,38 @@ const Register = () => {
               }}
             />
 
-            <label className={styles.label}>
-              생년월일 (6자리)
-              <input
-                type="password"
-                name="birth"
-                inputMode="numeric"
-                maxLength={6}
-                value={form.birth}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <input
+              placeholder="생년월일 입력 (6자리)"
+              type="password"
+              name="birth"
+              inputMode="numeric"
+              maxLength={6}
+              value={form.birth}
+              onChange={handleChange}
+              className={styles.input}
+            />
 
-            <label className={styles.label}>
-              카드 비밀번호 앞 2자리
-              <input
-                type="password"
-                name="password2Digits"
-                inputMode="numeric"
-                maxLength={2}
-                value={form.password2Digits}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <input
+              placeholder="카드 비밀번호 앞 2자리 입력"
+              type="password"
+              name="password2Digits"
+              inputMode="numeric"
+              maxLength={2}
+              value={form.password2Digits}
+              onChange={handleChange}
+              className={styles.input}
+            />
 
-            <label className={styles.label}>
-              CVC
-              <input
-                type="password"
-                name="cvc"
-                inputMode="numeric"
-                maxLength={3}
-                value={form.cvc}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <input
+              placeholder="CVC 입력 (3자리)"
+              type="password"
+              name="cvc"
+              inputMode="numeric"
+              maxLength={3}
+              value={form.cvc}
+              onChange={handleChange}
+              className={styles.input}
+            />
 
             <button type="submit" className={styles.button}>
               다음
