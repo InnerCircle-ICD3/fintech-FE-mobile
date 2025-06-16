@@ -107,14 +107,12 @@ const Register = () => {
               }}
             />
 
-            <label className={styles.label}>
-              유효기간 (MM/YY)
-              <ExpiryInput
-                onChange={(val) => {
-                  setForm({ ...form, expiry: val });
-                }}
-              />
-            </label>
+            <ExpiryInput
+              value={form.expiry}
+              onChange={(val) => {
+                setForm({ ...form, expiry: val });
+              }}
+            />
 
             <label className={styles.label}>
               생년월일 (6자리)

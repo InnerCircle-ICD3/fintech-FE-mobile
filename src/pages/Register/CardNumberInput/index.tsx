@@ -27,7 +27,7 @@ export function CardNumberInput({ value, onChange }: Props) {
     <input
       value={displayValue}
       inputMode="numeric"
-      placeholder="카드 번호 입력"
+      placeholder="카드 번호 입력 (16자리)"
       className={styles.cardNumberInput}
       onChange={handleChange}
     />
