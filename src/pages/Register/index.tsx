@@ -169,12 +169,11 @@ const Register = () => {
             <p className={styles.title}>카드사를 선택해주세요</p>
             <div className={styles.grid}>
               {cardCompanies.map((company) => (
-                <button
-                  key={company}
-                  className={styles.gridItem}
-                  onClick={() => setCardCompany(company)}
-                >
-                  {company}
+                <button className={styles.gridItem} onClick={() => setCardCompany(company.name)}>
+                  <div>
+                    {company.icon}
+                    <div>{company.name}</div>
+                  </div>
                 </button>
               ))}
             </div>

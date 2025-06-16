@@ -129,7 +129,6 @@ export const drawerContent = style({
   borderTopLeftRadius: '16px',
   borderTopRightRadius: '16px',
   width: '100%',
-  maxHeight: '70%',
   padding: '16px',
 });
 
@@ -142,7 +141,7 @@ export const dragHandle = style({
 });
 
 export const title = style({
-  textAlign: 'center',
+  textAlign: 'left',
   fontSize: '16px',
   marginBottom: '12px',
 });
@@ -150,12 +149,13 @@ export const title = style({
 export const grid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateRows: 'repeat(3, 1fr)',
   gap: '8px',
 });
 
 export const gridItem = style({
-  padding: '12px',
-  borderRadius: '8px',
+  padding: '50px 30px',
+  borderRadius: '12px',
   border: '1px solid #ccc',
   textAlign: 'center',
   backgroundColor: '#f9f9f9',
