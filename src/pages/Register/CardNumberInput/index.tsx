@@ -6,55 +6,30 @@ interface Props {
   onChange: (cardNumber: string) => void;
 }
 
+const formatCardNumber = (value: string) => {
+  return value
+    .replace(/\D/g, '') // 숫자만 남김
+    .substring(0, 16) // 최대 16자리
+    .replace(/(.{4})/g, '$1 ') // 4자리마다 공백
+    .trim(); // 마지막 공백 제거
+};
+
 export function CardNumberInput({ value, onChange }: Props) {
-  const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
-  const [blocks, setBlocks] = useState(['', '', '', '']);
+  const [displayValue, setDisplayValue] = useState(formatCardNumber(value));
 
-  // 부모가 value를 바꿨을 경우 로컬 상태도 동기화
-  useEffect(() => {
-    if (value.length === 16) {
-      setBlocks([value.slice(0, 4), value.slice(4, 8), value.slice(8, 12), value.slice(12, 16)]);
-    }
-  }, [value]);
-
-  const handleChange = (index: number, val: string) => {
-    if (!/^\d*$/.test(val)) return;
-
-    const newBlocks = [...blocks];
-    newBlocks[index] = val.slice(0, 4);
-    setBlocks(newBlocks);
-
-    // 전체 번호를 상위로 전달
-    onChange(newBlocks.join(''));
-
-    if (val.length === 4 && index < 3) {
-      inputsRef.current[index + 1]?.focus();
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (e.key === 'Backspace' && blocks[index] === '' && index > 0) {
-      inputsRef.current[index - 1]?.focus();
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawValue = e.target.value.replace(/\D/g, '').slice(0, 16);
+    onChange(rawValue);
+    setDisplayValue(formatCardNumber(rawValue));
   };
 
   return (
-    <div className={styles.cardNumberContainer}>
-      {blocks.map((block, i) => (
-        <input
-          key={i}
-          ref={(el) => {
-            inputsRef.current[i] = el;
-          }}
-          type="password"
-          inputMode="numeric"
-          maxLength={4}
-          className={styles.cardNumberInput}
-          value={block}
-          onChange={(e) => handleChange(i, e.target.value)}
-          onKeyDown={(e) => handleKeyDown(e, i)}
-        />
-      ))}
-    </div>
+    <input
+      value={displayValue}
+      inputMode="numeric"
+      placeholder="카드 번호 입력 (16자리)"
+      className={styles.cardNumberInput}
+      onChange={handleChange}
+    />
   );
 }

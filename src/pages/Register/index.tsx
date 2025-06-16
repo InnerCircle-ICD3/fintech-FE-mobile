@@ -99,63 +99,53 @@ const Register = () => {
                 </div>
               )}
             </button>
-            <label className={styles.label}>
-              카드번호
-              <CardNumberInput
-                value={form.cardNumber}
-                onChange={(val) => {
-                  setForm({ ...form, cardNumber: val });
-                }}
-              />
-            </label>
 
-            <label className={styles.label}>
-              유효기간 (MM/YY)
-              <ExpiryInput
-                onChange={(val) => {
-                  setForm({ ...form, expiry: val });
-                }}
-              />
-            </label>
+            <CardNumberInput
+              value={form.cardNumber}
+              onChange={(val) => {
+                setForm({ ...form, cardNumber: val });
+              }}
+            />
 
-            <label className={styles.label}>
-              생년월일 (6자리)
-              <input
-                type="password"
-                name="birth"
-                inputMode="numeric"
-                maxLength={6}
-                value={form.birth}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <ExpiryInput
+              value={form.expiry}
+              onChange={(val) => {
+                setForm({ ...form, expiry: val });
+              }}
+            />
 
-            <label className={styles.label}>
-              카드 비밀번호 앞 2자리
-              <input
-                type="password"
-                name="password2Digits"
-                inputMode="numeric"
-                maxLength={2}
-                value={form.password2Digits}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <input
+              placeholder="생년월일 입력 (6자리)"
+              type="password"
+              name="birth"
+              inputMode="numeric"
+              maxLength={6}
+              value={form.birth}
+              onChange={handleChange}
+              className={styles.input}
+            />
 
-            <label className={styles.label}>
-              CVC
-              <input
-                type="password"
-                name="cvc"
-                inputMode="numeric"
-                maxLength={3}
-                value={form.cvc}
-                onChange={handleChange}
-                className={styles.input}
-              />
-            </label>
+            <input
+              placeholder="카드 비밀번호 앞 2자리 입력"
+              type="password"
+              name="password2Digits"
+              inputMode="numeric"
+              maxLength={2}
+              value={form.password2Digits}
+              onChange={handleChange}
+              className={styles.input}
+            />
+
+            <input
+              placeholder="CVC 입력 (3자리)"
+              type="password"
+              name="cvc"
+              inputMode="numeric"
+              maxLength={3}
+              value={form.cvc}
+              onChange={handleChange}
+              className={styles.input}
+            />
 
             <button type="submit" className={styles.button}>
               다음
@@ -180,11 +170,14 @@ const Register = () => {
             <div className={styles.grid}>
               {cardCompanies.map((company) => (
                 <button
-                  key={company}
+                  key={company.name}
                   className={styles.gridItem}
-                  onClick={() => setCardCompany(company)}
+                  onClick={() => setCardCompany(company.name)}
                 >
-                  {company}
+                  <div>
+                    {company.icon}
+                    <div>{company.name}</div>
+                  </div>
                 </button>
               ))}
             </div>
