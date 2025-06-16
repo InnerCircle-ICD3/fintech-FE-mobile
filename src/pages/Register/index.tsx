@@ -99,15 +99,13 @@ const Register = () => {
                 </div>
               )}
             </button>
-            <label className={styles.label}>
-              카드번호
-              <CardNumberInput
-                value={form.cardNumber}
-                onChange={(val) => {
-                  setForm({ ...form, cardNumber: val });
-                }}
-              />
-            </label>
+
+            <CardNumberInput
+              value={form.cardNumber}
+              onChange={(val) => {
+                setForm({ ...form, cardNumber: val });
+              }}
+            />
 
             <label className={styles.label}>
               유효기간 (MM/YY)

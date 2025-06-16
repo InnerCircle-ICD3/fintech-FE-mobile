@@ -34,10 +34,11 @@ export const form = style({
 
 export const cardCompanyButton = style({
   padding: '10px',
-  fontSize: '16px',
+  fontSize: '18px',
+  height: '72px',
   textAlign: 'left',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
 });
 
@@ -82,18 +83,13 @@ export const button = style({
   margin: '1rem',
 });
 
-export const cardNumberContainer = style({
-  display: 'flex',
-  gap: '8px',
-});
-
 export const cardNumberInput = style({
-  width: '60px',
-  padding: '10px',
-  fontSize: '16px',
-  textAlign: 'center',
+  padding: '0px 10px',
+  display: 'flex',
+  height: '72px',
+  fontSize: '18px',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
 });
 
