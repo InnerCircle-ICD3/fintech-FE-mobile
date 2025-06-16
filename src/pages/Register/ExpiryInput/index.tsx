@@ -16,7 +16,7 @@ export function ExpiryInput({ value, onChange }: Props) {
   const [displayValue, setDisplayValue] = useState(formatExpiry(value));
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = e.target.value.replace(/\D/g, '').slice(0, 16);
+    const rawValue = e.target.value.replace(/\D/g, '').slice(0, 4);
     onChange(rawValue);
     setDisplayValue(formatExpiry(rawValue));
   };
