@@ -3,7 +3,14 @@ import * as styles from '@/styles/Payment.css';
 import { useState } from 'react';
 import CardSlider from '@/components/CardSlider';
 
-const Payment = () => {
+export type Order = {
+  amount: number;
+  merchant_order_id: string;
+  merchant_id: string;
+  productName: string;
+};
+
+const Payment = ({ amount, merchant_order_id, merchant_id, productName }: Order) => {
   const [selectedCardNumber, setSelectedCardNumber] = useState('');
 
   const navigate = useNavigate();
@@ -16,8 +23,8 @@ const Payment = () => {
 
     navigate('/payment/password', {
       state: {
-        store: '네이버 스토어',
-        amount: 59000,
+        store: productName,
+        amount: amount,
         cardNumber: selectedCardNumber,
       },
     });
@@ -27,8 +34,8 @@ const Payment = () => {
     <div className={styles.payContainer}>
       <h1 className={styles.payTitle}>상품 결제</h1>
       <div className={styles.payInfoBox}>
-        <p>판매처: 네이버 스토어</p>
-        <p>금액: 59,000원</p>
+        <p>판매처: {merchant_id}</p>
+        <p>금액: {amount}원</p>
         <CardSlider
           selectable={true}
           selectedCardNumber={selectedCardNumber}
