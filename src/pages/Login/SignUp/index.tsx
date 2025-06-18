@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import * as styles from '@/styles/Signup.css';
 import { auth } from '@/api/auth';
+import BackIcon from '@/assets/img/back-icon.svg?react';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -34,7 +35,17 @@ const SignUp = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>회원가입</h1>
+      <header className={styles.header}>
+        <button className={styles.backButton} onClick={() => navigate('/')}>
+          <BackIcon />
+        </button>
+        <div className={styles.headerName}>회원가입</div>
+        <div></div>
+      </header>
+
+      <h1 className={styles.title}>계정정보 입력</h1>
+      <div className={styles.description}>열정페이에서 사용할 계정 정보를 입력해주세요.</div>
+
       <form className={styles.form} onSubmit={handleSignUp}>
         <input
           className={styles.input}
