@@ -82,7 +82,7 @@ const Register = () => {
   return (
     <div>
       <header className={styles.header}>
-        <button className={styles.backButton} onClick={() => navigate('/')}>
+        <button className={styles.backButton} onClick={() => navigate(-1)}>
           <BackIcon />
         </button>
         <div className={styles.headerName}>카드 등록하기</div>

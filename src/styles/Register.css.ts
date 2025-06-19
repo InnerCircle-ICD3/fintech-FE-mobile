@@ -160,3 +160,46 @@ export const gridItem = style({
   textAlign: 'center',
   backgroundColor: '#f9f9f9',
 });
+
+export const agreementTitle = style({
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  margin: '1rem',
+});
+
+export const agreementDescription = style({ color: 'gray', margin: '1rem' });
+
+export const agreementItem = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+export const agreementItemOption = style({
+  color: 'blue',
+  fontWeight: 'bold',
+  marginTop: '1rem',
+  marginLeft: '1rem',
+});
+
+export const agreementItemTitle = style({
+  marginTop: '1rem',
+  marginLeft: '0.5rem',
+});
+
+export const agreementItemUnCheck = style({
+  color: 'gray',
+  marginTop: '1rem',
+  marginLeft: 'auto',
+  background: 'transparent',
+  border: 'none',
+});
+
+export const agreementItemCheck = style({
+  fontWeight: 'bold',
+  marginTop: '1rem',
+  marginLeft: 'auto',
+  right: '0',
+  background: 'transparent',
+  border: 'none',
+});
