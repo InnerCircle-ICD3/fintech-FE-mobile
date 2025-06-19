@@ -82,7 +82,7 @@ const Register = () => {
   return (
     <div>
       <header className={styles.header}>
-        <button className={styles.backButton} onClick={() => navigate('/register/agreement')}>
+        <button className={styles.backButton} onClick={() => navigate(-1)}>
           <BackIcon />
         </button>
         <div className={styles.headerName}>카드 등록하기</div>
@@ -158,7 +158,7 @@ const Register = () => {
             const updatedForm = { ...form, paymentPassword: value };
             card.register(updatedForm);
             alert('카드 정보가 등록되었습니다.');
-            navigate(-1);
+            navigate('/');
           }}
         />
       )}
