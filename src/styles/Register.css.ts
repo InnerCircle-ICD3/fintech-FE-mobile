@@ -171,6 +171,8 @@ export const agreementDescription = style({ color: 'gray', margin: '1rem' });
 
 export const agreementItem = style({
   display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 });
 
 export const agreementItemOption = style({
@@ -188,9 +190,7 @@ export const agreementItemTitle = style({
 export const agreementItemUnCheck = style({
   color: 'gray',
   marginTop: '1rem',
-  marginRight: '1rem',
-  position: 'fixed',
-  right: '0',
+  marginLeft: 'auto',
   background: 'transparent',
   border: 'none',
 });
@@ -198,8 +198,7 @@ export const agreementItemUnCheck = style({
 export const agreementItemCheck = style({
   fontWeight: 'bold',
   marginTop: '1rem',
-  marginRight: '1rem',
-  position: 'fixed',
+  marginLeft: 'auto',
   right: '0',
   background: 'transparent',
   border: 'none',
