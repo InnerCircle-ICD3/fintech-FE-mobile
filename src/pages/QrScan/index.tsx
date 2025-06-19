@@ -1,13 +1,23 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Scanner } from '@yudiel/react-qr-scanner';
 import * as styles from '@/styles/QrScan.css';
 import BottomNav from '@/components/Main/BottomNav';
-import Payment from '../Payment';
 import Text from '@/components/ui/text';
+import Payment, { Order } from '../Payment';
 
 const QrScan = () => {
   const [qrData, setQrData] = useState<string | null>(null);
+  const [order, setOrder] = useState<Order | null>(null);
   const hasScannedRef = useRef(false); // 중복 스캔 방지
+
+  useEffect(() => {
+    try {
+      const parsed: Order = JSON.parse(qrData ?? '');
+      setOrder(parsed);
+    } catch {
+      setOrder(null);
+    }
+  }, [qrData]);
 
   const handleScan = (detectedCodes: { rawValue: string }[]) => {
     if (!hasScannedRef.current && detectedCodes.length > 0) {
@@ -53,7 +63,12 @@ const QrScan = () => {
           />
         </div>
       ) : (
-        <Payment />
+        <Payment
+          amount={order?.amount ?? 0}
+          merchant_order_id={order?.merchant_order_id ?? ''}
+          merchant_id={order?.merchant_id ?? ''}
+          productName={order?.productName ?? ''}
+        />
       )}
       <BottomNav />
     </div>

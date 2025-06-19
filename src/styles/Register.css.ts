@@ -34,10 +34,11 @@ export const form = style({
 
 export const cardCompanyButton = style({
   padding: '10px',
-  fontSize: '16px',
+  fontSize: '18px',
+  height: '72px',
   textAlign: 'left',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
 });
 
@@ -57,11 +58,11 @@ export const label = style({
 });
 
 export const input = style({
-  marginTop: '6px',
-  padding: '10px',
-  fontSize: '16px',
+  padding: '0px 10px',
+  height: '72px',
+  fontSize: '18px',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
   boxSizing: 'border-box',
 });
@@ -82,35 +83,27 @@ export const button = style({
   margin: '1rem',
 });
 
-export const cardNumberContainer = style({
-  display: 'flex',
-  gap: '8px',
-});
-
 export const cardNumberInput = style({
-  width: '60px',
-  padding: '10px',
-  fontSize: '16px',
-  textAlign: 'center',
+  padding: '0px 10px',
+  display: 'flex',
+  height: '72px',
+  fontSize: '18px',
   border: '1px solid #ccc',
-  borderRadius: '6px',
+  borderRadius: '12px',
   backgroundColor: '#fff',
 });
 
 export const expiryBlockContainer = style({
-  display: 'flex',
-  alignItems: 'center',
   gap: '6px',
 });
 
 export const expiryBlock = style({
-  width: '48px',
-  height: '44px',
-  padding: '8px',
+  display: 'flex',
+  height: '72px',
+  padding: '0px 10px',
   fontSize: '18px',
   border: '1px solid #ccc',
-  borderRadius: '6px',
-  textAlign: 'center',
+  borderRadius: '12px',
   backgroundColor: '#fff',
 });
 
@@ -136,7 +129,6 @@ export const drawerContent = style({
   borderTopLeftRadius: '16px',
   borderTopRightRadius: '16px',
   width: '100%',
-  maxHeight: '70%',
   padding: '16px',
 });
 
@@ -149,7 +141,7 @@ export const dragHandle = style({
 });
 
 export const title = style({
-  textAlign: 'center',
+  textAlign: 'left',
   fontSize: '16px',
   marginBottom: '12px',
 });
@@ -157,13 +149,57 @@ export const title = style({
 export const grid = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
+  gridTemplateRows: 'repeat(3, 1fr)',
   gap: '8px',
 });
 
 export const gridItem = style({
-  padding: '12px',
-  borderRadius: '8px',
+  padding: '50px 30px',
+  borderRadius: '12px',
   border: '1px solid #ccc',
   textAlign: 'center',
   backgroundColor: '#f9f9f9',
+});
+
+export const agreementTitle = style({
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  margin: '1rem',
+});
+
+export const agreementDescription = style({ color: 'gray', margin: '1rem' });
+
+export const agreementItem = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+export const agreementItemOption = style({
+  color: 'blue',
+  fontWeight: 'bold',
+  marginTop: '1rem',
+  marginLeft: '1rem',
+});
+
+export const agreementItemTitle = style({
+  marginTop: '1rem',
+  marginLeft: '0.5rem',
+});
+
+export const agreementItemUnCheck = style({
+  color: 'gray',
+  marginTop: '1rem',
+  marginLeft: 'auto',
+  background: 'transparent',
+  border: 'none',
+});
+
+export const agreementItemCheck = style({
+  fontWeight: 'bold',
+  marginTop: '1rem',
+  marginLeft: 'auto',
+  right: '0',
+  background: 'transparent',
+  border: 'none',
 });

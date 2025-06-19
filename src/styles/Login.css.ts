@@ -1,15 +1,14 @@
 import { style } from '@vanilla-extract/css';
 
-
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   maxWidth: '480px',
-  height : '100vh',
+  height: '100vh',
   margin: '16px',
-  justifyContent : 'center',
-  gap : '55px',
+  justifyContent: 'center',
+  gap: '55px',
 });
 
 export const title = style({
@@ -22,8 +21,8 @@ export const form = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  width : '100%',
-  gap : '16px',
+  width: '100%',
+  gap: '16px',
 });
 
 export const input = style({
@@ -31,12 +30,12 @@ export const input = style({
   fontSize: '1rem',
   borderRadius: '8px',
   border: '1px solid #ccc',
-  height : '54px',
+  height: '54px',
 });
 
 export const button = style({
   width: '100%',
-  height : '64px',
+  height: '64px',
   fontSize: '1rem',
   background: '#18254C',
   color: '#fff',

@@ -5,7 +5,14 @@ import CardSlider from '@/components/CardSlider';
 import Text from '@/components/ui/text';
 import Flex from '@/components/layout/flex';
 
-const Payment = () => {
+export type Order = {
+  amount: number;
+  merchant_order_id: string;
+  merchant_id: string;
+  productName: string;
+};
+
+const Payment = ({ amount, merchant_order_id, merchant_id, productName }: Order) => {
   const [selectedCardNumber, setSelectedCardNumber] = useState('');
 
   const navigate = useNavigate();
@@ -18,8 +25,8 @@ const Payment = () => {
 
     navigate('/payment/password', {
       state: {
-        store: '네이버 스토어',
-        amount: 59000,
+        store: productName,
+        amount: amount,
         cardNumber: selectedCardNumber,
       },
     });
@@ -30,8 +37,8 @@ const Payment = () => {
       <h1 className={styles.payTitle}>상품 결제</h1>
       <div className={styles.payInfoBox}>
         <Flex direction={'column'} gap={'4px'} justify={'center'} align={'center'}>
-          <Text size={'xs'}>[2PACK] 싱글 에어그램 반팔 티셔츠</Text>
-          <Text size={'md'} weight={'bold'}>59,000원</Text>
+          <Text size={'xs'}>{productName}</Text>
+          <Text size={'md'} weight={'bold'}>{amount.toLocaleString()}원</Text>
         </Flex>
           <CardSlider
             selectable={true}
