@@ -7,11 +7,11 @@ import Main from '@/pages/Main';
 import QrScan from '@/pages/QrScan';
 import UsageHistory from '@/pages/UsageHistory';
 import Filter from '@/pages/UsageHistory/Filter';
-import Payment from '@/pages/Payment';
 import EnterPassword from '@/pages/Payment/EnterPassword';
 import Success from '@/pages/Payment/Success';
 import Fail from '@/pages/Payment/Fail/Index';
 import My from '@/pages/My';
+import RegisterAgreement from '@/pages/Register/RegisterAgreement';
 
 const CustomRouterProvider = () => {
   const browserRouter = createBrowserRouter([
@@ -29,6 +29,10 @@ const CustomRouterProvider = () => {
           element: <Register />,
         },
         {
+          path: 'register/agreement',
+          element: <RegisterAgreement />,
+        },
+        {
           path: 'qr',
           element: <QrScan />,
         },
@@ -39,10 +43,6 @@ const CustomRouterProvider = () => {
         {
           path: 'history/filter',
           element: <Filter />,
-        },
-        {
-          path: 'payment',
-          element: <Payment />,
         },
         {
           path: 'payment/password',
